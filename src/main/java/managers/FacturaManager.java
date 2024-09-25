@@ -94,8 +94,9 @@ public class FacturaManager {
     }
 
     public List<Factura> getFacturasXArticulo(Long idArticulo){ //INNER JOIN, LEFT JOIN, LEFT OUTER JOIN, etc
-        StringBuilder jpql = new StringBuilder("SELECT fact FROM Factura AS fact LEFT OUTER JOIN fact.detallesFactura AS detalle");
-        jpql.append(" WHERE detalle.id = :idArticulo");
+        StringBuilder jpql = new StringBuilder("SELECT fact FROM Factura AS fact ");
+        jpql.append(" LEFT OUTER JOIN fact.detallesFactura AS detalle");
+        jpql.append(" WHERE detalle.articulo.id = :idArticulo");
         Query query = em.createQuery(jpql.toString());
         query.setParameter("idArticulo", idArticulo);
 

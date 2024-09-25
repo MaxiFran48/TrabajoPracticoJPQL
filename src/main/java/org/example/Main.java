@@ -112,6 +112,7 @@ public class Main {
             ArticuloManufacturado articuloManufacturado = ArticuloManufacturado.builder()
                     .denominacion("Ensalada de frutas")
                     .descripcion("Ensalada de manzanas y peras ")
+                    .codigo(Long.toString(new Date().getTime()))
                     .precioVenta(150d)
                     .tiempoEstimadoMinutos(10)
                     .preparacion("Cortar las frutas en trozos pequeños y mezclar")

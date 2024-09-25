@@ -163,9 +163,6 @@ public class MainConsultasJPQL {
     public static void buscarClientesXRazonSocialParcial(){
         ClienteManager mCliente = new ClienteManager(true);
         try {
-            List<Long> idsClientes = new ArrayList<>();
-            idsClientes.add(1l);
-            idsClientes.add(2l);
             List<Cliente> clientes = mCliente.getClientesXRazonSocialParcialmente("Lui");
             for(Cliente cli : clientes){
                 System.out.println("Id: " + cli.getId());
