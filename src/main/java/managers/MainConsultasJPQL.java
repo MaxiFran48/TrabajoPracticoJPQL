@@ -12,25 +12,27 @@ import java.util.List;
 
 public class MainConsultasJPQL {
 
+    static boolean anularShowSQL = false;
+
     public static void main(String[] args) {
         //REPOSITORIO-> https://github.com/gerardomagni/jpqlquerys.git
 
-        //buscarFacturas();
-        //buscarFacturasActivas();
-        //buscarFacturasXNroComprobante();
-        //buscarFacturasXRangoFechas();
-        //buscarFacturaXPtoVentaXNroComprobante();
-        //buscarFacturasXCliente();
-        //buscarFacturasXCuitCliente();
-        //buscarFacturasXArticulo();
-        //mostrarMaximoNroFactura();
-        //buscarClientesXIds();
-        //buscarClientesXRazonSocialParcial();
+//        buscarFacturas();
+          buscarFacturasActivas();
+//        buscarFacturasXNroComprobante();
+//        buscarFacturasXRangoFechas();
+//        buscarFacturaXPtoVentaXNroComprobante();
+//        buscarFacturasXCliente();
+//        buscarFacturasXCuitCliente();
+//        buscarFacturasXArticulo();
+//        mostrarMaximoNroFactura();
+//        buscarClientesXIds();
+        buscarClientesXRazonSocialParcial();
     }
 
 
     public static void buscarFacturas(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             List<Factura> facturas = mFactura.getFacturas();
             mostrarFacturas(facturas);
@@ -42,7 +44,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarFacturasActivas(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             List<Factura> facturas = mFactura.getFacturasActivas();
             mostrarFacturas(facturas);
@@ -54,7 +56,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarFacturasXNroComprobante(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             List<Factura> facturas = mFactura.getFacturasXNroComprobante(796910l);
             mostrarFacturas(facturas);
@@ -66,7 +68,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarFacturasXRangoFechas(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             LocalDate fechaActual = LocalDate.now();
             LocalDate fechaInicio = FuncionApp.restarSeisMeses(fechaActual);
@@ -80,7 +82,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarFacturaXPtoVentaXNroComprobante(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             Factura factura = mFactura.getFacturaXPtoVentaXNroComprobante(2024, 796910l);
             mostrarFactura(factura);
@@ -92,7 +94,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarFacturasXCliente(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             List<Factura> facturas = mFactura.getFacturasXCliente(7l);
             mostrarFacturas(facturas);
@@ -104,7 +106,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarFacturasXCuitCliente(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             List<Factura> facturas = mFactura.getFacturasXCuitCliente("27236068981");
             mostrarFacturas(facturas);
@@ -116,7 +118,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarFacturasXArticulo(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             List<Factura> facturas = mFactura.getFacturasXArticulo(6l);
             mostrarFacturas(facturas);
@@ -128,7 +130,7 @@ public class MainConsultasJPQL {
     }
 
     public static void mostrarMaximoNroFactura(){
-        FacturaManager mFactura = new FacturaManager(true);
+        FacturaManager mFactura = new FacturaManager(anularShowSQL);
         try {
             Long nroCompMax = mFactura.getMaxNroComprobanteFactura();
             System.out.println("N° " + nroCompMax);
@@ -140,7 +142,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarClientesXIds(){
-        ClienteManager mCliente = new ClienteManager(true);
+        ClienteManager mCliente = new ClienteManager(anularShowSQL);
         try {
             List<Long> idsClientes = new ArrayList<>();
             idsClientes.add(1l);
@@ -161,7 +163,7 @@ public class MainConsultasJPQL {
     }
 
     public static void buscarClientesXRazonSocialParcial(){
-        ClienteManager mCliente = new ClienteManager(true);
+        ClienteManager mCliente = new ClienteManager(anularShowSQL);
         try {
             List<Cliente> clientes = mCliente.getClientesXRazonSocialParcialmente("Lui");
             for(Cliente cli : clientes){

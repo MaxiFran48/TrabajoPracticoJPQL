@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
+@ToString(exclude = {"cliente", "detallesFactura"})
 @Builder
 public class Factura {
 

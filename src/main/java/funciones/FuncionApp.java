@@ -7,6 +7,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.UUID;
 
 public class FuncionApp {
 
@@ -92,6 +93,12 @@ public class FuncionApp {
 
     public static boolean isEmpty(String value) {
         return value == null || value.isEmpty() || value.trim().isEmpty();
+    }
+
+    // Nuevo método: genera un código único corto para usar como 'codigo' en artículos
+    public static String generateUniqueCode() {
+        // Usar UUID y tomar los primeros 8 caracteres (sin guiones) para un identificador compacto
+        return UUID.randomUUID().toString().replace("-", "").substring(0, 8);
     }
 
 }

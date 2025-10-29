@@ -9,7 +9,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
+@ToString(exclude = {"factura", "articulo"})
 @Builder
 public class FacturaDetalle {
 

@@ -29,7 +29,8 @@ public class FacturaManager {
     }
 
     public List<Factura> getFacturas(){
-        String jpql = "FROM Factura";
+        //String jpql = "FROM Factura";
+        String jpql = "SELECT f FROM Factura f";
         Query query = em.createQuery(jpql);
 
         List<Factura> facturas = query.getResultList();
@@ -47,6 +48,7 @@ public class FacturaManager {
 
     public List<Factura> getFacturasXNroComprobante(Long nroComprobante){
         String jpql = "FROM Factura WHERE nroComprobante = :nroComprobante";
+        //String jpql = "SELECT f FROM Factura f WHERE f.nroComprobante = :nroComprobante";
         Query query = em.createQuery(jpql);
         query.setParameter("nroComprobante", nroComprobante);
 
